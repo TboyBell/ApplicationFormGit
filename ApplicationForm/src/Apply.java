@@ -86,6 +86,7 @@ public class Apply {
 		cl.setWrapStyleWord(true); 
 		
 		
+		// Read Here
 		JButton button = new JButton("Choose CV");
 		button.setBounds(40,600,150,50);
 		
@@ -94,7 +95,7 @@ public class Apply {
             public void actionPerformed(ActionEvent e) {
                 JFileChooser fileChooser = new JFileChooser();
 
-                // Show open dialog; this method does not return until the dialog is closed
+                // Show open dialog; this method does not return until the dialog is closed.
                 int returnValue = fileChooser.showOpenDialog(null);
 
                 if (returnValue == JFileChooser.APPROVE_OPTION) {
@@ -106,7 +107,11 @@ public class Apply {
             }
         });
 
-        frame.add(button);
+        // Too Here
+        
+        
+        
+        
 		
 		frame.add(title);
 		frame.add(Apply);
@@ -115,6 +120,7 @@ public class Apply {
 		frame.add(em);
 		frame.add(pn);
 		frame.add(cl);
+		frame.add(button);
 		frame.setVisible(true);
 	}
 
