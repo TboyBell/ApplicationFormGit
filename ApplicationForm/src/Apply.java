@@ -39,13 +39,87 @@ public class Apply {
 		title.setFont(new Font("Arial Black", Font.ITALIC,25));
 		title.setBounds(40, 0, 300, 50);
 		title.setBorder(new BevelBorder(BevelBorder.RAISED));
+		frame.add(title);
+
 		
 		
+		JTextField firstN = new JTextField("Enter First-Name/Press Enter Once Done");
+		firstN.setBounds(40, 60, 400, 30);
+		frame.add(firstN);
+
+		JTextField lastN = new JTextField("Enter Last-Name/Press Enter Once Done");
+		lastN.setBounds(40, 100, 400, 30);
+		frame.add(lastN);
+
+		JTextField email = new JTextField("Enter Email/Press Enter Once Done");
+		email.setBounds(40, 140, 400, 30);
+		frame.add(email);
+
+		JTextField phoneN = new JTextField("Enter Phone-Number/Press Enter Once Done");
+		phoneN.setBounds(40, 180, 400, 30);
+		frame.add(phoneN);
+
+		
+		Font font = new Font("Cambria",Font.ITALIC,20);
+		JTextField[] text = new JTextField[4];
+		text[0] = firstN;
+		text[1] = lastN;
+		text[2] = email;
+		text[3] = phoneN;
+		
+		for(int i = 0; i < text.length; i++) {
+			text[i].setFont(font);
+			final int index = i;
+			text[i].addActionListener(new ActionListener () {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					text[index].setText(text[index].getText());
+					text[index].setEditable(false);
+					
+				}
+				
+			});
+		}
+		
+		
+		
+		
+		JTextArea coverL = new JTextArea("Detail why you're fit for this role:");
+		coverL.setFont(font);
+		coverL.setBounds(40, 250, 400, 300); 
+		coverL.setLineWrap(true); 
+		coverL.setWrapStyleWord(true); 
+		frame.add(coverL);
+
+
+		
+		
+		JButton button = new JButton("Choose CV");
+		button.setBounds(40,600,150,50);
+		
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser fileChooser = new JFileChooser();
+
+                int returnValue = fileChooser.showOpenDialog(null);
+
+                if (returnValue == JFileChooser.APPROVE_OPTION) {
+                    File selectedFile = fileChooser.getSelectedFile();
+                    JOptionPane.showMessageDialog(null, "Selected file: " + selectedFile.getAbsolutePath());
+                } else {
+                    JOptionPane.showMessageDialog(null, "No file selected");
+                }
+            }
+        });
+		frame.add(button);        
+        
 		
 		JButton Apply = new JButton("Apply");
 		Apply.setFont(new Font("SansSerif",Font.BOLD,15));
 		Apply.setToolTipText("Final Submit");
-		Apply.setBounds(350, 0, 100, 50);
+		Apply.setBounds(300,600,150,50);
 		Apply.setFocusable(false);
 		Apply.addActionListener(new ActionListener() {
 
@@ -58,114 +132,15 @@ public class Apply {
 			}
 			
 		});
-			
-		
-		Font font = new Font("Cambria",Font.ITALIC,20);
-				
-		// Name, Email, Phone Email, COver Letter
-		
-	
-		
-		
-		JTextField fnm = new JTextField("Enter First-Name/Press Enter Once Done");
-		fnm.setFont(font);
-		fnm.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				fnm.setText(fnm.getText());
-				fnm.setEditable(false);
-				
-			}
-			
-		});
-		fnm.setBounds(40, 60, 400, 30);
-		
-		JTextField lnm = new JTextField("Enter Last-Name/Press Enter Once Done");
-		lnm.setFont(font);
-		lnm.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				lnm.setText(lnm.getText());
-				lnm.setEditable(false);
-				
-			}
-			
-		});
-		lnm.setBounds(40, 100, 400, 30);
-		
-		JTextField em = new JTextField("Enter Email/Press Enter Once Done");
-		em.setFont(font);
-		em.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				em.setText(em.getText());
-				em.setEditable(false);
-			}
-			
-		});
-		em.setBounds(40, 140, 400, 30);
-		
-		JTextField pn = new JTextField("Enter Phone-Number/Press Enter Once Done");
-		pn.setFont(font);
-		pn.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				pn.setText(pn.getText());				
-				pn.setEditable(false);
-			}
-			
-		});
-		pn.setBounds(40, 180, 400, 30);
-		
-		JTextArea cl = new JTextArea("Describe why you're fit for this role:");
-		cl.setFont(font);
-		cl.setBounds(40, 250, 400, 300); 
-		cl.setLineWrap(true); 
-		cl.setWrapStyleWord(true); 
-		
-		
-		// Read Here
-		JButton button = new JButton("Choose CV");
-		button.setBounds(40,600,150,50);
-		
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JFileChooser fileChooser = new JFileChooser();
-
-                // Show open dialog; this method does not return until the dialog is closed.
-                int returnValue = fileChooser.showOpenDialog(null);
-
-                if (returnValue == JFileChooser.APPROVE_OPTION) {
-                    File selectedFile = fileChooser.getSelectedFile();
-                    JOptionPane.showMessageDialog(null, "Selected file: " + selectedFile.getAbsolutePath());
-                } else {
-                    JOptionPane.showMessageDialog(null, "No file selected");
-                }
-            }
-        });
-
-        // Too Here
-        
-        
-        
-        
-		
-		frame.add(title);
 		frame.add(Apply);
-		frame.add(fnm);
-		frame.add(lnm);
-		frame.add(em);
-		frame.add(pn);
-		frame.add(cl);
-		frame.add(button);
+        
+		
 		frame.setVisible(true);
 	}
 
+	
+	
+	
 	public static void exitapp() {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.dispose();
