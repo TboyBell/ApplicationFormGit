@@ -12,3 +12,9 @@ This repository showcases a Java Swing application that simulates an application
 - **Visual Enhancements**: Utilizes custom fonts (`Arial Black`, `SansSerif`, `Cambria`) and border styles (`BevelBorder`) for improved aesthetics.
 
 
+Note:
+A Class called extra has been added,
+it is a small program that displays the path of any file chosen in the textfield.
+
+Enjoy!!!!
+
