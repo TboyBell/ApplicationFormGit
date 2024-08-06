@@ -13,8 +13,8 @@ This repository showcases a Java Swing application that simulates an application
 
 
 Note:
-A Class called extra has been added,
-it is a small program that displays the path of any file chosen in the textfield.
+
+A Class called extra has been added, it is a small program that displays the path of any file chosen in the textfield.
 
 Enjoy!!!!
 
