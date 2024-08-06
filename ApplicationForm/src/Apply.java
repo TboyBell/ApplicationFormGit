@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.BevelBorder;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Apply {
 	static JFrame frame;
@@ -96,12 +97,15 @@ public class Apply {
 		
 		
 		JButton button = new JButton("Choose CV");
+		button.setToolTipText("PDF & TXT Files Only.....");
 		button.setBounds(40,600,150,50);
 		
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFileChooser fileChooser = new JFileChooser();
+                FileNameExtensionFilter filter = new FileNameExtensionFilter("PDF and TXT Files", "pdf", "txt");
+                fileChooser.setFileFilter(filter);
 
                 int returnValue = fileChooser.showOpenDialog(null);
 
